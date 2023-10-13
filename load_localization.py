@@ -4,7 +4,7 @@ import json
 
 bot = telebot.TeleBot("6369952008:AAE14OfYmyw84nve2ndl0JCE7dww40LLCn0")
 a="ru"
-with open("localizations/"a+".json",encoding="UTF-8") as file:
+with open("localizations/"+a+".json",encoding="UTF-8") as file:
     text = json.load(file)
     
 @bot.message_handler(commands=['start'])
