@@ -1,5 +1,5 @@
 {    
-    "start": {
+    "start_btn": {
     "route":"Choose a place and route",
     "nearest":"Show the nearest places",
     "excursions":"Excursions"
@@ -11,5 +11,17 @@
     "exhibitions":"exhibitions",
     "monuments":"monuments",
     "events":"events"
+    },
+    "information":{
+    "info":"information",
+    "route":"plot a route"
+    },
+    "other":{
+    "category":"Select the category of places you want to visit",
+    "v1":"Variant1:",
+    "v2":"Variant2:",
+    "v3":"Variant3:",
+    "Contact":"Technical support contacts: ",
+    "start_text":"The bot can provide information about popular tourist destinations, as well as local attractions and events. It can also answer users' questions about what to see and what to do in a particular place. The bot can help you plan your travel itinerary, book tickets and hotels. It can offer various route options based on the user's interests and help with finding and booking tickets and hotels at the best prices. The bot can provide personalized recommendations and tips to users. It can also help with solving problems that may arise during the trip.\n<b>Travel Bot - this is a useful tool for travelers who want to learn more about a particular place and plan their trip.</b>"
     }
 }
