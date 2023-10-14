@@ -1,5 +1,15 @@
-{
-    "1": "Choose a place and route",
-    "2": "Show the nearest places",
-    "3": "Excursions"
+{    
+    "start": {
+    "route":"Choose a place and route",
+    "nearest":"Show the nearest places",
+    "excursions":"Excursions"
+    },
+    "places": {
+    "restaurants": "restaurants",
+    "hotels":"hotels",
+    "museums":"museums",
+    "exhibitions":"exhibitions",
+    "monuments":"monuments",
+    "events":"events"
+    }
 }

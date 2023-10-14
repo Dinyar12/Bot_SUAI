@@ -4,7 +4,7 @@ from keyboards import *
 bot = TeleBot('6313558465:AAE5SsYQFP9N6oSZZjdar1Mne1UqnR6tXac')
 
 
-def path(message):
+def path(message:types.Message):
     bot.send_message(message.chat.id, 'Horray!')
 
 
