@@ -1,7 +1,7 @@
 from telebot import *
 from keyboards import *
 
-bot = TeleBot('6313558465:AAE5SsYQFP9N6oSZZjdar1Mne1UqnR6tXac')
+bot = TeleBot('6666010835:AAGG7yhkJis2P0KVl3k72lXx5jMl6UMKi2M')
 
 
 def path(message:types.Message):
@@ -13,8 +13,50 @@ def near_places(message):
     bot.send_message(message.chat.id, 'Выберите категорию мест, которую Вы хотите посетить', reply_markup=murkup)
 
 
-def near_performace(message):
+def near_performance(message):
     bot.send_message(message.chat.id, 'Horray!!!!!')
+
+
+def restaurants(message):
+    markup = create_information_keyboard()
+    bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
+
+
+def hotel(message):
+    markup = create_information_keyboard()
+    bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
+
+
+def museam(message):
+    markup = create_information_keyboard()
+    bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
+
+
+def sites(message):
+    markup = create_information_keyboard()
+    bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
+
+
+def exhibition(message):
+    markup = create_information_keyboard()
+    bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
+
+
+def performance(message):
+    markup = create_information_keyboard()
+    bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
 
 
 @bot.message_handler(commands=['start'])
@@ -30,12 +72,18 @@ def start(message):
 
 @bot.message_handler(commands=['help'])
 def help(message):
-    bot.send_message(message.chat.id, 'Контакты техподдежки: +7 921-1488-1488')
+    bot.send_message(message.chat.id, 'Контакты техподдежки: +7 950 891-51-26')
 
 
 d = {"search": path,
      "round_place": near_places,
-     "round_performance": near_performace}
+     "round_performance": near_performance,
+     "restaurants": restaurants,
+     "hotel": hotel,
+     "museam": museam,
+     "sites": sites,
+     "exhibition": exhibition,
+     "performance": performance}
 
 
 @bot.callback_query_handler(func=lambda callback: True)
