@@ -13,7 +13,7 @@ def near_places(message):
     bot.send_message(message.chat.id, 'Выберите категорию мест, которую Вы хотите посетить', reply_markup=murkup)
 
 
-def near_performace(message):
+def near_performance(message):
     bot.send_message(message.chat.id, 'Horray!!!!!')
 
 
@@ -77,7 +77,7 @@ def help(message):
 
 d = {"search": path,
      "round_place": near_places,
-     "round_performance": near_performace,
+     "round_performance": near_performance,
      "restaurants": restaurants,
      "hotel": hotel,
      "museam": museam,
