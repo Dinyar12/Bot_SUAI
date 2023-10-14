@@ -7,15 +7,20 @@ with open("localizations/" + language + ".json", encoding="UTF-8") as file:
     text = json.load(file)
 
 
+def translation(l):
+    global language
+    if language == 'ru':
+        language = 'en'
+    else:
+        language = 'ru'
+    return language
+
+
 def create_start_keyboard() -> InlineKeyboardMarkup:
     markup = InlineKeyboardMarkup()
-    btn1 = InlineKeyboardButton('Выбрать место и маршрут', callback_data='search')
-    btn2 = InlineKeyboardButton('Показать ближайшие места', callback_data='round_place')
-    btn3 = InlineKeyboardButton('Экскурсии', callback_data='ecscursions')
-    markup.row(btn1, btn2)
     btn1 = InlineKeyboardButton(text["start_btn"]["route"], callback_data='search')
     btn2 = InlineKeyboardButton(text["start_btn"]["nearest"], callback_data='round_place')
-    btn3 = InlineKeyboardButton(text["start_btn"]["excursions"], callback_data='round_performance')
+    btn3 = InlineKeyboardButton(text["start_btn"]["excursions"], callback_data='ecscursions')
     markup.row(btn1, btn2)
     markup.row(btn3)
     return markup

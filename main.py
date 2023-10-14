@@ -9,17 +9,13 @@ bot = TeleBot('6666010835:AAGG7yhkJis2P0KVl3k72lXx5jMl6UMKi2M')
 language = "ru"
 
 
-def path(message):
-    bot.send_message(message.chat.id, 'Введите адрес места, куда хотите попасть:')
-    bot.register_next_step_handler(message, card)
-
-
 with open("localizations/" + language + ".json", encoding="UTF-8") as file:
     text = json.load(file)
 
 
 def path(message: types.Message):
-    bot.send_message(message.chat.id, 'Horray!')
+    bot.send_message(message.chat.id, 'Введите адрес места, куда хотите попасть:')
+    bot.register_next_step_handler(message, card)
 
 
 def near_places(message):
@@ -94,6 +90,12 @@ def start(message):
 @bot.message_handler(commands=['help'])
 def help(message):
     bot.send_message(message.chat.id, text["other"]["Contact"] + '+7 950 891-51-26')
+
+
+@bot.message_handler(commands=['language'])
+def trans(message):
+    translation(language)
+    bot.send_message(message.chat.id, 'Язык успешно изменён')
 
 
 d = {"search": path,
