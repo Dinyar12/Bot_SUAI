@@ -1,11 +1,15 @@
 from telebot import *
+
+import test
 from keyboards import *
+from test import *
 
 bot = TeleBot('6666010835:AAGG7yhkJis2P0KVl3k72lXx5jMl6UMKi2M')
 
 
 def path(message):
-    bot.send_message(message.chat.id, 'Horray!')
+    bot.send_message(message.chat.id, 'Введите адрес места, куда хотите попасть:')
+    bot.register_next_step_handler(message, card)
 
 
 def near_places(message):
@@ -58,8 +62,15 @@ def performance(message):
     bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
     bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
 
+
 def info(message):
     bot.send_message(message.chat.id, 'Информация...')
+
+
+def card(message):
+    m = message.text
+    API(m)
+    bot.send_photo(message.chat.id, photo=test.img)
 
 
 @bot.message_handler(commands=['start'])

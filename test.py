@@ -1,40 +1,46 @@
-import sys
 from io import BytesIO
 import requests
 from PIL import Image
 
-toponym_to_find = " ".join(sys.argv[1:])
+img = ''
 
-geocoder_api_server = "https://geocode-maps.yandex.ru/1.x/"
 
-geocoder_params = {
-    "apikey": "5e3d492d-da55-4b30-b588-561714e7d959",
-    "geocode": toponym_to_find,
-    "format": "json"}
+def API(m):
+    global img
+    s = 'Санкт-Петербург,'
+    toponym_to_find = s + m
+    print(toponym_to_find)
 
-response = requests.get(geocoder_api_server, params=geocoder_params)
+    geocoder_api_server = "https://geocode-maps.yandex.ru/1.x/"
 
-if not response:
-    pass
+    geocoder_params = {
+        "apikey": "5e3d492d-da55-4b30-b588-561714e7d959",
+        "geocode": toponym_to_find,
+        "format": "json"}
 
-json_response = response.json()
+    response = requests.get(geocoder_api_server, params=geocoder_params)
 
-toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
+    if not response:
+        pass
 
-toponym_coodrinates = toponym["Point"]["pos"]
+    json_response = response.json()
 
-toponym_longitude, toponym_lattitude = toponym_coodrinates.split(" ")
+    toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
 
-delta = "0.005"
+    toponym_coodrinates = toponym["Point"]["pos"]
 
-map_params = {
-    "ll": ",".join([toponym_longitude, toponym_lattitude]),
-    "spn": ",".join([delta, delta]),
-    "l": "map"
-}
+    toponym_longitude, toponym_lattitude = toponym_coodrinates.split(" ")
 
-map_api_server = "http://static-maps.yandex.ru/1.x/"
-response = requests.get(map_api_server, params=map_params)
+    delta = "0.005"
 
-Image.open(BytesIO(
-    response.content)).show()
+    map_params = {
+        "ll": ",".join([toponym_longitude, toponym_lattitude]),
+        "spn": ",".join([delta, delta]),
+        "l": "map",
+        "pt": ",".join([toponym_longitude, toponym_lattitude, 'flag~28.969573,41.04311'])
+    }
+
+    map_api_server = "http://static-maps.yandex.ru/1.x/"
+    response = requests.get(map_api_server, params=map_params)
+
+    img = Image.open(BytesIO(response.content))
