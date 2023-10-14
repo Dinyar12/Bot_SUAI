@@ -13,7 +13,7 @@ def near_places(message):
     bot.send_message(message.chat.id, 'Выберите категорию мест, которую Вы хотите посетить', reply_markup=murkup)
 
 
-def near_performance(message):
+def ecscursions(message):
     bot.send_message(message.chat.id, 'Horray!!!!!')
 
 
@@ -58,6 +58,9 @@ def performance(message):
     bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
     bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
 
+def info(message):
+    bot.send_message(message.chat.id, 'Информация...')
+
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -77,13 +80,14 @@ def help(message):
 
 d = {"search": path,
      "round_place": near_places,
-     "round_performance": near_performance,
+     "ecscursions": ecscursions,
      "restaurants": restaurants,
      "hotel": hotel,
      "museam": museam,
      "sites": sites,
      "exhibition": exhibition,
-     "performance": performance}
+     "performance": performance,
+     "info": info}
 
 
 @bot.callback_query_handler(func=lambda callback: True)

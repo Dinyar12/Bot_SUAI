@@ -5,7 +5,7 @@ def create_start_keyboard() -> InlineKeyboardMarkup:
     markup = InlineKeyboardMarkup()
     btn1 = InlineKeyboardButton('Выбрать место и маршрут', callback_data='search')
     btn2 = InlineKeyboardButton('Показать ближайшие места', callback_data='round_place')
-    btn3 = InlineKeyboardButton('Экскурсии', callback_data='round_performance')
+    btn3 = InlineKeyboardButton('Экскурсии', callback_data='ecscursions')
     markup.row(btn1, btn2)
     markup.row(btn3)
     return markup
