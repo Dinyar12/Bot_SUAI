@@ -24,6 +24,27 @@ def restaurants(message):
     bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
 
 
+def hotel(message):
+    markup = create_information_keyboard()
+    bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
+
+
+def museam(message):
+    markup = create_information_keyboard()
+    bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
+
+
+def sites(message):
+    markup = create_information_keyboard()
+    bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
+
+
 @bot.message_handler(commands=['start'])
 def start(message):
     markup = create_start_keyboard()
@@ -43,7 +64,10 @@ def help(message):
 d = {"search": path,
      "round_place": near_places,
      "round_performance": near_performace,
-     "restaurants": restaurants}
+     "restaurants": restaurants,
+     "hotel": hotel,
+     "museam": museam,
+     "sites": sites}
 
 
 @bot.callback_query_handler(func=lambda callback: True)
