@@ -18,8 +18,10 @@ def near_performace(message):
 
 
 def restaurants(message):
-    markup = ''
+    markup = create_information_keyboard()
     bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант2:', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Вариант3:', reply_markup=markup)
 
 
 @bot.message_handler(commands=['start'])
