@@ -16,9 +16,9 @@ def create_menu_places_keyboard() -> InlineKeyboardMarkup:
     btn1 = InlineKeyboardButton('Рестораны 🍴', callback_data='restaurants')
     btn2 = InlineKeyboardButton('Отели 🏢', callback_data='hotel')
     btn3 = InlineKeyboardButton('Музеи 🏛', callback_data='museam')
-    btn4 = InlineKeyboardButton('Выставки 🖼', callback_data='4')
+    btn4 = InlineKeyboardButton('Выставки 🖼', callback_data='exhibition')
     btn5 = InlineKeyboardButton('Памятники 🗿', callback_data='sites')
-    btn6 = InlineKeyboardButton('Мероприятия 📆', callback_data='6')
+    btn6 = InlineKeyboardButton('Мероприятия 📆', callback_data='performance')
     markup.row(btn1, btn2, btn3)
     markup.row(btn4, btn5, btn6)
     return markup
