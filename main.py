@@ -17,6 +17,11 @@ def near_performace(message):
     bot.send_message(message.chat.id, 'Horray!!!!!')
 
 
+def restaurants(message):
+    markup = ''
+    bot.send_message(message.chat.id, 'Вариант1:', reply_markup=markup)
+
+
 @bot.message_handler(commands=['start'])
 def start(message):
     markup = create_start_keyboard()
@@ -35,7 +40,8 @@ def help(message):
 
 d = {"search": path,
      "round_place": near_places,
-     "round_performance": near_performace}
+     "round_performance": near_performace,
+     "restaurants": restaurants}
 
 
 @bot.callback_query_handler(func=lambda callback: True)

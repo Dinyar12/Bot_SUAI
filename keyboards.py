@@ -13,7 +13,7 @@ def create_start_keyboard() -> InlineKeyboardMarkup:
 
 def create_menu_places_keyboard() -> InlineKeyboardMarkup:
     markup = InlineKeyboardMarkup()
-    btn1 = InlineKeyboardButton('Рестораны 🍴', callback_data='1')
+    btn1 = InlineKeyboardButton('Рестораны 🍴', callback_data='restaurants')
     btn2 = InlineKeyboardButton('Отели 🏢', callback_data='2')
     btn3 = InlineKeyboardButton('Музеи 🏛', callback_data='3')
     btn4 = InlineKeyboardButton('Выставки 🖼', callback_data='4')
